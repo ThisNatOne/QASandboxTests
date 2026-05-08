@@ -19,8 +19,8 @@ test('login with valid credentials and logout', async ({ page }) => {
     const dashboardPage = new DashboardPage(page);
     await expect(dashboardPage.dashboardHeading).toBeVisible();
     await expect(dashboardPage.dashboardHeading).toHaveText('Welcome back, Admin Tester');
-    await expect(dashboardPage.profileSection).toBeVisible();
-    await expect(dashboardPage.securitySection).toBeVisible();
+    await expect(dashboardPage.signAsSection).toBeVisible();
+    await expect(dashboardPage.userProfileEmail).toBeVisible();
 
     await dashboardPage.logoutButton.click();
     await expect(homePage.pageTitle).toBeVisible();
