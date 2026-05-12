@@ -12,4 +12,15 @@ export class LoginPage {
         this.userNameInput = page.getByLabel('Username');
         this.passwordInput = page.getByLabel('Password');
         this.signInButton = page.getByTestId('login-submit');
-    }};
+    }
+
+    async navigateToLogin() {
+        await this.page.goto('/login');
+    }
+
+    async loginToTheDashboard(username: string, password: string) {
+        await this.userNameInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.signInButton.click();
+    }
+}
