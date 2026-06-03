@@ -28,7 +28,7 @@ test('GET /orders with token, api should return orders', async ({ request }) => 
   expect(ordersResponse.status()).toBe(200);
 
   const ordersBody = await ordersResponse.json();
-  const orderList = ordersBody.orders;
+  const orderList = await ordersBody.orders;
 
   expect(Array.isArray(orderList)).toBeTruthy();
   expect(orderList.length).toBeGreaterThan(0); //Assuming there is at least one order in the database
